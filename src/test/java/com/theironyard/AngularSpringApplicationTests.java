@@ -55,7 +55,15 @@ public class AngularSpringApplicationTests {
 
 
         Assert.assertTrue(userRepository.count() == 1);
+    }
 
+    @Test
+    public void deleteUser() throws Exception {
+        mockMvc.perform(
+                MockMvcRequestBuilders.delete("/user/1")
+        );
+
+        Assert.assertTrue(userRepository.count() == 0);
     }
 
 
